@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/.Net_Lab3_Shanshan.csproj",
+                "${workspaceFolder}/Goose-Panda-love-Coffee.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/.Net_Lab3_Shanshan.csproj",
+                "${workspaceFolder}/Goose-Panda-love-Coffee.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/.Net_Lab3_Shanshan.csproj"
+                "${workspaceFolder}/Goose-Panda-love-Coffee.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace _Net_Lab3_Shanshan.Pages;
+namespace Goose_Panda_love_Coffee.Pages;
 
 public class PrivacyModel : PageModel
 {
