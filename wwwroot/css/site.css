@@ -15,4 +15,45 @@ html {
 
 body {
   margin-bottom: 60px;
+
+}
+
+.bodyclass {
+  background-image: url('/Images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navbar-brand {
+  font-family: 'Rubik Puddles', cursive;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.nav-item {
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.nav-item:hover {
+  font-family: 'Indie Flower', cursive;
+  font-weight: weight;
+  font-size: 35px;
+  font-display: aliceblue;
+}
+
+.display-4 {
+  font-family: 'Indie Flower',
+    cursive;
+  font-weight: bold;
+  font-size: 80px;
+}
+
+.container {
+  font-family: 'Indie Flower',
+    cursive;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
 }
