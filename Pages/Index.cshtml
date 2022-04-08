@@ -1,8 +1,8 @@
 ﻿@page
 @model IndexModel
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<SiteUser> SignInManager
+@inject UserManager<SiteUser> UserManager
 
 @{
     ViewData["Title"] = "Home page";
@@ -12,7 +12,7 @@
 {
     <div class="text-center">
 
-        <h1 class="display-4">Welcome,@Model.UserEmail</h1>
+        <h1 class="display-4">Welcome</h1>
         <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     </div>
 }
@@ -25,18 +25,3 @@ else
             to view website!</p>
     </div>
 }
-
-@* <div class="course-columns">
-    @foreach (var course in Model.Courses)
-    {
-    <div class="course">
-    <div class="course-img" style="background-image: url('@course.Image');"></div>
-    <div class="course-body">
-    <h5 class="course-title">@course.Title</h5>
-
-    </div>
-
-
-    </div>
-    }
-    </div> *@

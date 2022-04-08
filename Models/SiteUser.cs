@@ -2,24 +2,27 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace Goose_Panda_Love_Coffee.Models;
 
-public class User
+public class SiteUser : IdentityUser
 {
-    public int UserId { get; set; }
+    [PersonalData]
     public string? Name { get; set; }
-
-    //public virtual User? User { get; set; }
-    public string? Email { get; set; }
-    public int? StreetNumber { get; set; }
+    [PersonalData]
+    public int StreetNumber { get; set; } = 1;
+    [PersonalData]
     public string? StreetName { get; set; }
-
+    [PersonalData]
     [RegularExpression(@"^[A-Za-z][0-9][A-Za-z][ ]*[0-9][A-Za-z][0-9]$", ErrorMessage = "Please enter postal code in the correct way!")]
     public string? PostalCode { get; set; }
-    [Required]
+
+    [PersonalData]
     public string? City { get; set; }
+    [PersonalData]
     public string? Province { get; set; }
+    [PersonalData]
     public string? Phone { get; set; }
 
 }
