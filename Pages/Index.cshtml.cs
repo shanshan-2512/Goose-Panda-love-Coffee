@@ -11,7 +11,7 @@ public class IndexModel : PageModel
 
     private readonly SchoolDBContext _context;
     [BindProperty]
-    public User? UserInfo { get; set; }
+    public SiteUser? UserInfo { get; set; }
 
     // //public IEnumerable<Class> classes { get; private set}
 
@@ -32,6 +32,7 @@ public class IndexModel : PageModel
                 if (email != null)
                 {
                     UserEmail = email.Value;
+                    _logger.Log(LogLevel.Information, email.Value);
                 }
             }
         }
