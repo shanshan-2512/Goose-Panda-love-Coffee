@@ -20,6 +20,8 @@ namespace Goose_Panda_love_Coffee.Pages_Student
         }
 
         public IList<Student> Student { get;set; }
+        
+        
 
         public async Task OnGetAsync()
         {
