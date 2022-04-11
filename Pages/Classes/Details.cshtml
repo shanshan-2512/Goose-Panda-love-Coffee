@@ -1,5 +1,6 @@
 @page
-@model Goose_Panda_love_Coffee.Pages.Classes.DetailsModel
+@model Goose_Panda_love_Coffee.Pages_Classes.DetailsModel
+
 
 @{
     ViewData["Title"] = "Details";
@@ -8,18 +9,19 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Class</h4>
+
+    <h4>Classes</h4>
     <hr />
     <dl class="row">
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Class.className)
+            @Html.DisplayNameFor(model => model.Classes.ClassName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Class.className)
+            @Html.DisplayFor(model => model.Classes.ClassName)
         </dd>
     </dl>
-    @if(Model.Class != null && Model.Class.Enrolled != null){
+    @if(Model.Classes != null && Model.Classes.Enrolled != null){
        <table>
            
                <tr>
@@ -28,7 +30,7 @@
                </tr>
                
            
-        @foreach (var student in Model.Class.Enrolled){
+        @foreach (var student in Model.Classes.Enrolled){
             
                 <tr>
                     <td>@student.First</td>
@@ -41,6 +43,7 @@
     }
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Class.classId">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Classes.ClassesId">Edit</a> |
+
     <a asp-page="./Index">Back to List</a>
 </div>

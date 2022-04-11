@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Goose_Panda_Love_Coffee.Models;
 
-namespace Goose_Panda_love_Coffee.Pages.Classes
+namespace Goose_Panda_love_Coffee.Pages_Classes
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
         }
 
         [BindProperty]
-        public Class Class { get; set; }
+        public Classes Classes { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +30,9 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
                 return NotFound();
             }
 
-            Class = await _context.Class.FirstOrDefaultAsync(m => m.classId == id);
+            Classes = await _context.Classes.FirstOrDefaultAsync(m => m.ClassesId == id);
 
-            if (Class == null)
+            if (Classes == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
                 return Page();
             }
 
-            _context.Attach(Class).State = EntityState.Modified;
+            _context.Attach(Classes).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClassExists(Class.classId))
+                if (!ClassesExists(Classes.ClassesId))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
             return RedirectToPage("./Index");
         }
 
-        private bool ClassExists(int id)
+        private bool ClassesExists(int id)
         {
-            return _context.Class.Any(e => e.classId == id);
+            return _context.Classes.Any(e => e.ClassesId == id);
         }
     }
 }

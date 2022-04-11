@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Goose_Panda_Love_Coffee.Models;
 
-namespace Goose_Panda_love_Coffee.Pages.Classes
+namespace Goose_Panda_love_Coffee.Pages_Classes
 {
     public class CreateModel : PageModel
     {
@@ -25,7 +25,7 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
         }
 
         [BindProperty]
-        public Class Class { get; set; }
+        public Classes Classes { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
                 return Page();
             }
 
-            _context.Class.Add(Class);
+            _context.Classes.Add(Classes);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -18,5 +18,6 @@ public class SchoolDBContext : IdentityDbContext
 
     public DbSet<Goose_Panda_Love_Coffee.Models.SiteUser> SchoolUser { get; set; }
 
-    public DbSet<Goose_Panda_Love_Coffee.Models.Class> Class { get; set; }
+    public DbSet<Goose_Panda_Love_Coffee.Models.Classes> Classes { get; set; }
+
 }

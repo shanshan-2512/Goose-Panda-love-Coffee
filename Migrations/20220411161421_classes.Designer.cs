@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Goose_Panda_love_Coffee.Migrations
 {
     [DbContext(typeof(SchoolDBContext))]
-    [Migration("20220408152527_customUserData")]
-    partial class customUserData
+    [Migration("20220411161421_classes")]
+    partial class classes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,38 @@ namespace Goose_Panda_love_Coffee.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("ClassesStudent", b =>
+                {
+                    b.Property<int>("CoursesClassesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EnrolledStudentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CoursesClassesId", "EnrolledStudentId");
+
+                    b.HasIndex("EnrolledStudentId");
+
+                    b.ToTable("ClassesStudent");
+                });
+
+            modelBuilder.Entity("Goose_Panda_Love_Coffee.Models.Classes", b =>
+                {
+                    b.Property<int>("ClassesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClassName")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Teacher")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("ClassesId");
+
+                    b.ToTable("Classes");
+                });
 
             modelBuilder.Entity("Goose_Panda_Love_Coffee.Models.Student", b =>
                 {
@@ -267,10 +299,25 @@ namespace Goose_Panda_love_Coffee.Migrations
                     b.Property<string>("StreetName")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("StreetNumber")
+                    b.Property<int>("StreetNumber")
                         .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("SiteUser");
+                });
+
+            modelBuilder.Entity("ClassesStudent", b =>
+                {
+                    b.HasOne("Goose_Panda_Love_Coffee.Models.Classes", null)
+                        .WithMany()
+                        .HasForeignKey("CoursesClassesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Goose_Panda_Love_Coffee.Models.Student", null)
+                        .WithMany()
+                        .HasForeignKey("EnrolledStudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

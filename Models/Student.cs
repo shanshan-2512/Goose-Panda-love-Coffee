@@ -14,6 +14,6 @@ public class Student
 
     public int? Credit { get; set; } = 0;
 
-    public virtual List<Class>? Courses {get;set;}
+    public virtual List<Classes>? Courses {get;set;}
 
 }

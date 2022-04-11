@@ -1,5 +1,7 @@
 @page
-@model Goose_Panda_love_Coffee.Pages.Classes.IndexModel
+
+@model Goose_Panda_love_Coffee.Pages_Classes.IndexModel
+
 
 @{
     ViewData["Title"] = "Index";
@@ -14,21 +16,27 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Class[0].className)
+                @Html.DisplayNameFor(model => model.Classes[0].ClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Teacher)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Class) {
+
+@foreach (var item in Model.Classes) {
         <tr>
             <td>
-               <a asp-page="./Details" asp-route-id="@item.classId">@Html.DisplayFor(modelItem => item.className)</a> 
+                 <a asp-page="./Details" asp-route-id="@item.ClassesId">@Html.DisplayFor(modelItem => item.ClassName)</a> 
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.classId">Edit</a> |
-                
-                <a asp-page="./Delete" asp-route-id="@item.classId">Delete</a>
+                @Html.DisplayFor(modelItem => item.Teacher)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ClassesId">Edit</a> |               
+                <a asp-page="./Delete" asp-route-id="@item.ClassesId">Delete</a>
             </td>
         </tr>
 }
