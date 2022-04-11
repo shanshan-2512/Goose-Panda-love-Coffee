@@ -22,9 +22,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Student[0].Email)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Student[0].Credit)
-            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -40,9 +38,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Credit)
-            </td>
+            
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.StudentId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.StudentId">Details</a> |

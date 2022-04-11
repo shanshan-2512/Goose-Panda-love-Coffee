@@ -20,4 +20,6 @@ public class SchoolDBContext : IdentityDbContext
 
     public DbSet<Goose_Panda_Love_Coffee.Models.Classes> Classes { get; set; }
 
+    public DbSet<Goose_Panda_Love_Coffee.Models.StudentClasses> StudentClasses { get; set; }
+
 }

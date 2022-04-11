@@ -12,7 +12,7 @@ public class Student
     public string? Last { get; set; }
     public string? Email { get; set; }
 
-    public int? Credit { get; set; } = 0;
+    // public int? Credit { get; set; } = 0;
 
     public virtual List<Classes>? Courses {get;set;}
 

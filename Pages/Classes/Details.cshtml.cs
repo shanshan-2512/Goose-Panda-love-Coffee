@@ -22,8 +22,9 @@ namespace Goose_Panda_love_Coffee.Pages_Classes
 
         public Classes Classes { get; set; }
 
+        public StudentClasses StudentClass { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, int? courseid, int? studentid)
         {
             if (id == null)
             {
@@ -32,6 +33,7 @@ namespace Goose_Panda_love_Coffee.Pages_Classes
 
 
             Classes = await _context.Classes.Include(s => s.Enrolled).FirstOrDefaultAsync(m => m.ClassesId == id);
+            StudentClass = await _context.StudentClasses.Where(sc => sc.Classes.ClassesId == courseid && sc.Student.StudentId == studentid).FirstOrDefaultAsync();
 
             if (Classes == null)
             {

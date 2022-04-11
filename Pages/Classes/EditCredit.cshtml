@@ -1,0 +1,36 @@
+﻿@page
+@model Goose_Panda_love_Coffee.Pages_Classes.EditCreditModel
+@{
+    ViewData["Title"] = "EditCredit";
+}
+
+<h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="StudentClass.StudentClassesId" />
+            
+            <div class="form-group">
+                <label asp-for="StudentClass.Credit" class="control-label"></label>
+                <input asp-for="StudentClass.Credit" class="form-control" />
+                <span asp-validation-for="StudentClass.Credit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Details">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
