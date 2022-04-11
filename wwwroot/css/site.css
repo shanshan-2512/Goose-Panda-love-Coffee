@@ -57,3 +57,16 @@ body {
   font-size: 20px;
   color: black;
 }
+
+.radio-labels {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+
+.radio-labels label {
+  background-color: rgba(2, 11, 90, 0.5);
+  font-size: x-large;
+  color: white;
+}
