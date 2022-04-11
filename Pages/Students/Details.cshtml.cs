@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Goose_Panda_Love_Coffee.Models;
 
-namespace Goose_Panda_love_Coffee.Pages.Classes
+namespace Goose_Panda_love_Coffee.Pages.Students
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
             _context = context;
         }
 
-        public Class Class { get; set; }
+        public Student Student { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
                 return NotFound();
             }
 
-            Class = await _context.Class.Include(s => s.Enrolled).FirstOrDefaultAsync(m => m.classId == id);
+            Student = await _context.Student.FirstOrDefaultAsync(m => m.StudentId == id);
 
-            if (Class == null)
+            if (Student == null)
             {
                 return NotFound();
             }

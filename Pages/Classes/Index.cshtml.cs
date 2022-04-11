@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Goose_Panda_Love_Coffee.Models;
 
-namespace Goose_Panda_love_Coffee.Pages_Student
+namespace Goose_Panda_love_Coffee.Pages.Classes
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,11 @@ namespace Goose_Panda_love_Coffee.Pages_Student
             _context = context;
         }
 
-        public IList<Student> Student { get;set; }
-        
-        
+        public IList<Class> Class { get;set; }
 
         public async Task OnGetAsync()
         {
-            Student = await _context.Student.ToListAsync();
+            Class = await _context.Class.ToListAsync();
         }
     }
 }

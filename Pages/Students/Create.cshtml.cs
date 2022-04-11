@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Goose_Panda_Love_Coffee.Models;
 
-namespace Goose_Panda_love_Coffee.Pages.Classes
+namespace Goose_Panda_love_Coffee.Pages.Students
 {
     public class CreateModel : PageModel
     {
@@ -25,7 +25,7 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
         }
 
         [BindProperty]
-        public Class Class { get; set; }
+        public Student Student { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace Goose_Panda_love_Coffee.Pages.Classes
                 return Page();
             }
 
-            _context.Class.Add(Class);
+            _context.Student.Add(Student);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

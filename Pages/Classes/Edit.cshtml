@@ -1,5 +1,5 @@
 @page
-@model Goose_Panda_love_Coffee.Pages_Student.EditModel
+@model Goose_Panda_love_Coffee.Pages.Classes.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -7,32 +7,17 @@
 
 <h1>Edit</h1>
 
-<h4>Student</h4>
+<h4>Class</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Student.StudentId" />
+            <input type="hidden" asp-for="Class.classId" />
             <div class="form-group">
-                <label asp-for="Student.First" class="control-label"></label>
-                <input asp-for="Student.First" class="form-control" />
-                <span asp-validation-for="Student.First" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Student.Last" class="control-label"></label>
-                <input asp-for="Student.Last" class="form-control" />
-                <span asp-validation-for="Student.Last" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Student.Email" class="control-label"></label>
-                <input asp-for="Student.Email" class="form-control" />
-                <span asp-validation-for="Student.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Student.Credit" class="control-label"></label>
-                <input asp-for="Student.Credit" class="form-control" />
-                <span asp-validation-for="Student.Credit" class="text-danger"></span>
+                <label asp-for="Class.className" class="control-label"></label>
+                <input asp-for="Class.className" class="form-control" />
+                <span asp-validation-for="Class.className" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

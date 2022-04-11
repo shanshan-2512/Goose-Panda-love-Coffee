@@ -1,5 +1,5 @@
 @page
-@model Goose_Panda_love_Coffee.Pages_Student.DetailsModel
+@model Goose_Panda_love_Coffee.Pages.Classes.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -8,36 +8,39 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Student</h4>
+    <h4>Class</h4>
     <hr />
     <dl class="row">
+
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.First)
+            @Html.DisplayNameFor(model => model.Class.className)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.First)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.Last)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.Last)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.Credit)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.Credit)
+            @Html.DisplayFor(model => model.Class.className)
         </dd>
     </dl>
+    @if(Model.Class != null && Model.Class.Enrolled != null){
+       <table>
+           
+               <tr>
+                   <th>First</th>
+                   <th>Last</th>
+               </tr>
+               
+           
+        @foreach (var student in Model.Class.Enrolled){
+            
+                <tr>
+                    <td>@student.First</td>
+                    <td>@student.Last</td>
+                </tr>
+
+            
+        }
+        </table>
+    }
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Student.StudentId">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Class.classId">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
