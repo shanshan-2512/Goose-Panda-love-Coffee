@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,29 +10,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Goose_Panda_love_Coffee.Migrations
 {
     [DbContext(typeof(SchoolDBContext))]
-    partial class SchoolDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220411200108_separateusers")]
+    partial class separateusers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("ClassesStudent", b =>
-                {
-                    b.Property<int>("CoursesClassesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EnrolledStudentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CoursesClassesId", "EnrolledStudentId");
-
-                    b.HasIndex("EnrolledStudentId");
-
-                    b.ToTable("ClassesStudent");
-                });
 
             modelBuilder.Entity("Goose_Panda_Love_Coffee.Models.Classes", b =>
                 {
@@ -71,30 +58,6 @@ namespace Goose_Panda_love_Coffee.Migrations
                     b.HasKey("StudentId");
 
                     b.ToTable("Student");
-                });
-
-            modelBuilder.Entity("Goose_Panda_Love_Coffee.Models.StudentClasses", b =>
-                {
-                    b.Property<int>("StudentClassesId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ClassesId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Credit")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("StudentClassesId");
-
-                    b.HasIndex("ClassesId");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("StudentClasses");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -324,37 +287,10 @@ namespace Goose_Panda_love_Coffee.Migrations
                     b.Property<int>("StreetNumber")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserType")
+                        .HasColumnType("longtext");
+
                     b.HasDiscriminator().HasValue("SiteUser");
-                });
-
-            modelBuilder.Entity("ClassesStudent", b =>
-                {
-                    b.HasOne("Goose_Panda_Love_Coffee.Models.Classes", null)
-                        .WithMany()
-                        .HasForeignKey("CoursesClassesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Goose_Panda_Love_Coffee.Models.Student", null)
-                        .WithMany()
-                        .HasForeignKey("EnrolledStudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Goose_Panda_Love_Coffee.Models.StudentClasses", b =>
-                {
-                    b.HasOne("Goose_Panda_Love_Coffee.Models.Classes", "Classes")
-                        .WithMany()
-                        .HasForeignKey("ClassesId");
-
-                    b.HasOne("Goose_Panda_Love_Coffee.Models.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId");
-
-                    b.Navigation("Classes");
-
-                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

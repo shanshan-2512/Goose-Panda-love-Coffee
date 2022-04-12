@@ -25,4 +25,7 @@ public class SiteUser : IdentityUser
     [PersonalData]
     public string? Phone { get; set; }
 
+    [PersonalData]
+    public string? UserType { get; set; }
+
 }
